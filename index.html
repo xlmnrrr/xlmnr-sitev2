@@ -146,7 +146,6 @@
     <div class="reviews-grid" id="reviewsContainer">
       <p style="text-align:center; width:100%; color:var(--text-muted);">Загрузка отзывов...</p>
     </div>
-    <!-- Отзывы скрыты, так как нет сервера для их хранения по 152-ФЗ. Показываем заглушку -->
   </div>
 </section>
 
@@ -158,23 +157,13 @@
       <div class="form-group"><input type="text" id="clientName" placeholder="Ваше имя" required maxlength="80"></div>
       <div class="form-group"><input type="tel" id="clientPhone" placeholder="Телефон или Telegram" required maxlength="40"></div>
       <div class="form-group"><textarea id="clientMessage" placeholder="Какой сайт вам нужен?" rows="3"></textarea></div>
-
       <input type="text" id="website" style="display:none" tabindex="-1" autocomplete="off">
-
       <div class="consent-group">
         <input type="checkbox" id="consentPd" required>
         <label for="consentPd">
           Я ознакомлен(а) с <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Политикой обработки ПДн</a> и даю <a href="consent/index.html" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a> <span style="color:#ef4444">*</span>
         </label>
       </div>
-
-      <div class="consent-group">
-        <input type="checkbox" id="consentMarketing">
-        <label for="consentMarketing">
-          Согласен(на) на получение рекламных и информационных сообщений (необязательно)
-        </label>
-      </div>
-
       <button type="submit" class="btn" id="submitBtn" style="width: 100%;">Отправить заявку</button>
       <div id="formStatus" style="text-align: center; margin-top: 15px; font-weight: 600;"></div>
     </form>
@@ -205,7 +194,6 @@
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-left">
         <p>© 2026 XLMNR. Все права защищены.</p>
