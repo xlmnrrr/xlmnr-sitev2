@@ -1,0 +1,80 @@
+/* ============================================
+   XLMNR — стили сайта
+   ============================================ */
+:root {
+  --bg: #121212;
+  --surface: #1a1a1a;
+  --text: #f5f2eb;
+  --text-muted: #a3a3a3;
+  --accent: #c26a4a;
+  --border: rgba(255,255,255,0.08);
+  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-display: Georgia, "Times New Roman", serif;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.6; }
+img { max-width: 100%; height: auto; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 20px; }
+h2 { font-size: clamp(1.7rem, 5vw, 3rem); margin-bottom: 30px; text-align: center; }
+h2 span { font-style: italic; color: var(--accent); }
+.container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+/* ШАПКА */
+.header { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(18, 18, 18, 0.95); border-bottom: 1px solid var(--border); padding: 15px 0; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--text); text-decoration: none; }
+.logo span { color: var(--accent); }
+.nav { display: flex; gap: 20px; }
+.nav a { color: var(--text-muted); text-decoration: none; }
+.nav a:hover { color: var(--text); }
+.btn { display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; padding: 12px 24px; border-radius: 4px; font-size: 16px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: background 0.3s; }
+.btn:hover { background: #a65539; }
+
+/* ГЛАВНЫЙ ЭКРАН */
+.hero { min-height: 80vh; display: flex; align-items: center; text-align: center; padding-top: 100px; }
+.hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 30px; max-width: 600px; margin-inline: auto; }
+.hero-actions { display: flex; gap: 15px; justify-content: center; }
+
+/* УСЛУГИ */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
+.bento-item { background: var(--surface); padding: 30px; border-radius: 8px; border: 1px solid var(--border); grid-column: span 12; }
+.bento-item h3 { font-size: 22px; margin-bottom: 10px; color: var(--accent); }
+.bento-item p { color: var(--text-muted); }
+@media (min-width: 768px) { .bento-item.wide { grid-column: span 8; } .bento-item.narrow { grid-column: span 4; } }
+
+/* ПОРТФОЛИО */
+.portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.portfolio-item { display: block; text-decoration: none; color: inherit; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); background: var(--surface); transition: transform 0.3s; }
+.portfolio-item:hover { transform: translateY(-5px); }
+.portfolio-img { aspect-ratio: 16/10; display: flex; align-items: center; justify-content: center; }
+.portfolio-info { padding: 20px; }
+.portfolio-info p { color: var(--accent); font-size: 13px; font-weight: 600; text-transform: uppercase; margin-bottom: 5px; }
+.portfolio-info h3 { font-size: 20px; }
+
+/* ФОРМА */
+.section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 30px; }
+.contact-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+.form-group input, .form-group textarea { width: 100%; padding: 15px; background: #000; border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: inherit; font-size: 16px; }
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+.consent-group { display: flex; gap: 10px; align-items: flex-start; }
+.consent-group input { margin-top: 5px; }
+.consent-group label { font-size: 13px; color: var(--text-muted); line-height: 1.4; }
+.consent-group a { color: var(--accent); }
+
+/* ПОДВАЛ */
+.footer { padding: 40px 0; background: #0a0a0a; color: var(--text-muted); font-size: 14px; border-top: 1px solid var(--border); }
+.footer-bottom { display: flex; flex-direction: column; gap: 20px; text-align: center; }
+@media (min-width: 768px) { .footer-bottom { flex-direction: row; justify-content: space-between; text-align: left; } }
+.footer-requisites { font-size: 12px; color: #666; margin-top: 10px; }
+.footer-bottom-center { display: flex; gap: 15px; justify-content: center; }
+.footer-bottom-center a { color: var(--text-muted); text-decoration: none; }
+.footer-bottom-center a:hover { color: var(--accent); }
+
+/* ЮРИДИЧЕСКИЕ СТРАНИЦЫ */
+.legal { max-width: 800px; margin: 100px auto; padding: 0 20px; }
+.legal h1 { font-size: 28px; margin-bottom: 20px; }
+.legal h2 { font-size: 20px; margin: 30px 0 10px; text-align: left; }
+.legal p, .legal li { color: #d0d0d0; margin-bottom: 10px; }
