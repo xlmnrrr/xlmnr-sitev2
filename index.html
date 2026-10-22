@@ -10,12 +10,8 @@
   <style>
     /* ================= БАЗА ================= */
     :root {
-      --bg: #121212;
-      --surface: #1a1a1a;
-      --text: #f5f2eb;
-      --text-muted: #a3a3a3;
-      --accent: #c26a4a;
-      --border: rgba(255,255,255,0.08);
+      --bg: #121212; --surface: #1a1a1a; --text: #f5f2eb; --text-muted: #a3a3a3;
+      --accent: #c26a4a; --border: rgba(255,255,255,0.08);
       --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
       --font-display: Georgia, "Times New Roman", serif;
     }
@@ -34,15 +30,9 @@
     section { padding: clamp(56px, 8vw, 100px) 0; position: relative; scroll-margin-top: 88px; }
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 60px; font-size: 18px; }
 
-    /* ================= СКРЫВАЕМ БЕЙДЖ TUQO ================= */
-    a[href*="tuqo.ru"][style*="position: fixed"],
-    a[href*="tuqo.ru"][style*="position:fixed"],
-    #tuqo-badge,
-    .tuqo-badge {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
+    /* СКРЫВАЕМ БЕЙДЖ TUQO */
+    a[href*="tuqo.ru"][style*="position: fixed"], a[href*="tuqo.ru"][style*="position:fixed"], #tuqo-badge, .tuqo-badge {
+      display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
     }
 
     /* ================= ШАПКА ================= */
@@ -68,7 +58,7 @@
     .hero p { font-size: clamp(1.1rem, 2vw, 1.3rem); color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-inline: auto; }
     .hero-actions { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
 
-    /* ================= АНИМАЦИИ БЛОКОВ ================= */
+    /* ================= АНИМАЦИИ ================= */
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
     .reveal.in { opacity: 1; transform: translateY(0); }
 
@@ -78,11 +68,7 @@
     .bento-item:hover { border-color: rgba(194, 106, 74, 0.4); transform: translateY(-4px); }
     .bento-item h3 { font-size: 22px; margin-bottom: 10px; color: var(--accent); }
     .bento-item p { color: var(--text-muted); font-size: 15px; }
-    @media (min-width: 768px) {
-      .bento-item.wide { grid-column: span 8; }
-      .bento-item.narrow { grid-column: span 4; }
-      .bento-item.third { grid-column: span 4; }
-    }
+    @media (min-width: 768px) { .bento-item.wide { grid-column: span 8; } .bento-item.narrow { grid-column: span 4; } .bento-item.third { grid-column: span 4; } }
 
     /* ================= ПОРТФОЛИО ================= */
     .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; }
@@ -118,12 +104,6 @@
     /* ================= ОТЗЫВЫ И ФОРМЫ ================= */
     .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 20px; margin-bottom: 40px; }
     .review-card { background: #1a1a1a; border: 1px solid var(--border); border-radius: 8px; padding: 30px; }
-    .review-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-    .review-avatar { width: 45px; height: 45px; background: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 18px; }
-    .review-author { font-weight: 700; font-size: 16px; color: #fff; }
-    .review-date { font-size: 12px; color: var(--text-muted); }
-    .review-text { color: #ddd; font-size: 15px; line-height: 1.5; }
-    .add-review-form { max-width: 600px; margin: 0 auto; background: #1a1a1a; padding: 30px; border-radius: 8px; border: 1px solid var(--border); }
     .form-group { margin-bottom: 15px; }
     .form-group input, .form-group textarea { width: 100%; padding: 15px; background: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: 4px; color: var(--text); font-family: inherit; font-size: 16px; }
     .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
@@ -165,17 +145,7 @@
     @media (min-width: 768px) { .footer-bottom-center { flex-direction: row; gap: 20px; flex-wrap: wrap; } }
     .footer-bottom-center a, .footer-bottom-center button { color: var(--text-muted); text-decoration: none; background: none; border: none; padding: 0; cursor: pointer; font-size: 13px; transition: 0.3s; }
     .footer-bottom-center a:hover, .footer-bottom-center button:hover { color: var(--accent); }
-    .footer-bottom-right { text-align: left; }
-    @media (min-width: 768px) { .footer-bottom-right { text-align: right; } }
     .footer-requisites { font-size: 11px; color: #666; margin-top: 10px; line-height: 1.4; }
-
-    /* COOKIE BANNER */
-    .cookie-banner { position: fixed; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 1400; max-width: 960px; margin-inline: auto; background: #1a1a1a; color: var(--text); border: 1px solid var(--border); border-radius: 8px; padding: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; font-size: 14px; }
-    .ai-fab { position: fixed; right: 16px; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 1100; border-radius: 50%; width: 56px; height: 56px; padding: 0; box-shadow: 0 4px 15px rgba(194, 106, 74, 0.4); }
-    body.has-cookie .ai-fab { bottom: calc(148px + env(safe-area-inset-bottom)); }
-    .cookie-banner[hidden] { display: none; }
-    .cookie-banner__text { flex: 1; min-width: 250px; }
-    .cookie-banner__actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
     /* МОДАЛКА БРАУЗЕРА */
     .modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 20px; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
@@ -193,25 +163,14 @@
     .browser-iframe { width: 100%; height: 100%; border: none; }
 
     @media (max-width: 860px) {
-      .nav-toggle { display: flex; }
-      .header-cta { display: none; }
-      .nav-cta { display: inline-flex; }
-      .nav-panel {
-        display: none;
-        position: absolute;
-        left: 0; right: 0; top: 100%;
-        background: #161616;
-        border-bottom: 1px solid var(--border);
-        padding: 8px 16px 16px;
-        flex-direction: column;
-        gap: 4px;
-      }
+      .nav-toggle { display: flex; } .header-cta { display: none; } .nav-cta { display: inline-flex; }
+      .nav-panel { display: none; position: absolute; left: 0; right: 0; top: 100%; background: #161616; border-bottom: 1px solid var(--border); padding: 8px 16px 16px; flex-direction: column; gap: 4px; }
       .header.menu-open .nav-panel { display: flex; }
       .nav { flex-direction: column; gap: 0; }
       .nav a { display: block; padding: 14px 4px; border-bottom: 1px solid var(--border); font-size: 16px; }
       .nav-cta { width: 100%; margin-top: 12px; }
       .hero-actions { flex-direction: column; align-items: stretch; }
-      .hero-actions .btn, .contact-form > .btn, .add-review-form .btn { width: 100%; }
+      .hero-actions .btn, .contact-form > .btn { width: 100%; }
       .browser-window { height: 92dvh; border-radius: 10px; }
       .ai-window { width: 100%; height: 100dvh; max-height: 100dvh; border-radius: 0; max-width: none; }
       .modal-overlay, .ai-modal { padding: 0; }
@@ -219,15 +178,9 @@
       .feature-item:hover, .bento-item:hover, .portfolio-item:hover { transform: none; }
       .bento-item { padding: 24px; }
       .container { padding-left: 16px; padding-right: 16px; }
-      .cookie-banner__actions { width: 100%; }
-      .cookie-banner__actions .btn { flex: 1; }
     }
-    @media (min-width: 861px) {
-      .nav-panel { display: contents; }
-    }
-    @media (max-width: 380px) {
-      .logo { font-size: 20px; }
-    }
+    @media (min-width: 861px) { .nav-panel { display: contents; } }
+    @media (max-width: 380px) { .logo { font-size: 20px; } }
   </style>
 </head>
 <body>
@@ -240,7 +193,6 @@
         <a href="#services">Услуги</a>
         <a href="#portfolio">Работы</a>
         <a href="#benefits">Почему мы</a>
-        <a href="#reviews">Отзывы</a>
         <a href="#contact">Контакты</a>
       </nav>
       <a href="#contact" class="btn nav-cta">Обсудить проект</a>
@@ -296,7 +248,7 @@
   <div class="container">
     <h2 class="reveal">Наши <span>работы</span></h2>
     <div class="portfolio-grid">
-      <div class="portfolio-item reveal" onclick="openBrowser('autoservice/avtoazbuka.html', 'avtoservice')">
+      <div class="portfolio-item reveal" onclick="openBrowser('autoservice/avtoazbuka.html')">
         <div class="portfolio-img" style="background: linear-gradient(135deg, #2b2b2b, #111);">
           <h2 style="color: rgba(255,255,255,0.1); font-size: 40px; font-family: var(--font-display);">Auto</h2>
         </div>
@@ -376,23 +328,14 @@
       <div class="form-group"><input type="text" id="clientName" placeholder="Ваше имя" required maxlength="80"></div>
       <div class="form-group"><input type="tel" id="clientPhone" placeholder="Телефон или Telegram" required maxlength="40"></div>
       <div class="form-group"><textarea id="clientMessage" placeholder="Какой сайт вам нужен?" rows="3"></textarea></div>
-
       <input type="text" id="website" style="display:none" tabindex="-1" autocomplete="off">
-
+      
       <div class="consent-group">
         <input type="checkbox" id="consentPd" required>
         <label for="consentPd">
           Я ознакомлен(а) с <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Политикой обработки ПДн</a> и даю <a href="consent/index.html" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a> <span style="color:#ef4444">*</span>
         </label>
       </div>
-
-      <div class="consent-group">
-        <input type="checkbox" id="consentMarketing">
-        <label for="consentMarketing">
-          Согласен(на) на получение рекламных и информационных сообщений (необязательно)
-        </label>
-      </div>
-
       <button type="submit" class="btn" id="submitBtn" style="width: 100%;">Отправить заявку</button>
       <div id="formStatus" style="text-align: center; margin-top: 15px; font-weight: 600;"></div>
     </form>
@@ -412,7 +355,6 @@
           <li><a href="#services">Услуги</a></li>
           <li><a href="#portfolio">Наши работы</a></li>
           <li><a href="#benefits">Почему мы</a></li>
-          <li><a href="#reviews">Отзывы</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -423,7 +365,6 @@
         </ul>
       </div>
     </div>
-
     <div class="footer-bottom">
       <div class="footer-bottom-left">
         <p>© 2026 XLMNR. Все права защищены.</p>
@@ -438,7 +379,6 @@
         <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Политика ПДн</a>
         <a href="consent/index.html" target="_blank" rel="noopener noreferrer">Согласие</a>
         <a href="cookie/index.html" target="_blank" rel="noopener noreferrer">Файлы cookie</a>
-        <button id="cookieSettings" type="button">Настройки cookie</button>
       </div>
     </div>
   </div>
@@ -466,9 +406,7 @@
   <div class="browser-window">
     <div class="browser-header">
       <div class="browser-dots">
-        <span onclick="closeBrowser()"></span>
-        <span></span>
-        <span></span>
+        <span onclick="closeBrowser()"></span><span></span><span></span>
       </div>
       <div class="browser-address" id="browserUrl">autoservice</div>
     </div>
@@ -479,168 +417,73 @@
 </div>
 
 <script>
-  // ==========================================
-  // ВСТАВЬТЕ СЮДА ССЫЛКУ НА ВАШУ ЯНДЕКС ФУНКЦИЮ
-  // ==========================================
-  const YANDEX_PROXY_URL = 'ВСТАВЬТЕ_ССЫЛКУ_ИЗ_ЯНДЕКС_ОБЛАКА';
+  // ССЫЛКА НА ВАШУ ФУНКЦИЮ ИЗ YANDEX CLOUD
+  const YANDEX_PROXY_URL = 'https://functions.yandexcloud.net/d4ele1sumghv1m4m7ij7';
 
-  // 1. Меню
   if (!document.body.classList.contains('is-wip')) setTimeout(() => document.getElementById('mainHeader').classList.add('show'), 150);
   const navToggle = document.getElementById('navToggle');
   const mainHeader = document.getElementById('mainHeader');
-  function closeMenu() {
-    mainHeader.classList.remove('menu-open');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
-  }
-  navToggle?.addEventListener('click', () => {
-    const open = mainHeader.classList.toggle('menu-open');
-    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
+  function closeMenu() { mainHeader.classList.remove('menu-open'); if (navToggle) navToggle.setAttribute('aria-expanded', 'false'); }
+  navToggle?.addEventListener('click', () => { const open = mainHeader.classList.toggle('menu-open'); navToggle.setAttribute('aria-expanded', open ? 'true' : 'false'); });
   document.querySelectorAll('#siteNav a').forEach(a => a.addEventListener('click', closeMenu));
 
-  // 2. Анимации скролла
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        observer.unobserve(entry.target);
-      }
-    });
+    entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('in'); observer.unobserve(entry.target); } });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // 3. Форма
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    if (!document.getElementById('consentPd').checked) {
-      alert('Поставьте галочку согласия на обработку ПДн.');
-      return;
-    }
-
-    const btn = document.getElementById('submitBtn');
-    const status = document.getElementById('formStatus');
-    const name = document.getElementById('clientName').value.trim();
-    const phone = document.getElementById('clientPhone').value.trim();
-    const message = document.getElementById('clientMessage').value.trim();
-    const website = document.getElementById('website').value;
-
+    if (!document.getElementById('consentPd').checked) { alert('Поставьте галочку согласия на обработку ПДн.'); return; }
+    const btn = document.getElementById('submitBtn'); const status = document.getElementById('formStatus');
+    const name = document.getElementById('clientName').value.trim(); const phone = document.getElementById('clientPhone').value.trim();
+    const message = document.getElementById('clientMessage').value.trim(); const website = document.getElementById('website').value;
     if (website) return;
-    if (!name || !phone) {
-      status.textContent = 'Заполните имя и телефон.';
-      status.style.color = '#ef4444';
-      return;
-    }
-
-    btn.textContent = 'Отправляется...'; btn.disabled = true;
-    status.textContent = '';
-
+    if (!name || !phone) { status.textContent = 'Заполните имя и телефон.'; status.style.color = '#ef4444'; return; }
+    btn.textContent = 'Отправляется...'; btn.disabled = true; status.textContent = '';
+    
     const text = `📩 Новая заявка с сайта XLMNR\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n💬 Сообщение: ${message || '—'}`;
-
     try {
-      const res = await fetch(YANDEX_PROXY_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'lead', text: text })
-      });
-
+      const res = await fetch(YANDEX_PROXY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'lead', text: text }) });
       if (!res.ok) throw new Error('Ошибка');
-      btn.textContent = 'Заявка отправлена!';
-      status.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.';
-      status.style.color = '#10b981';
-      this.reset();
+      btn.textContent = 'Заявка отправлена!'; status.textContent = 'Спасибо! Я свяжусь с вами в ближайшее время.'; status.style.color = '#10b981'; this.reset();
     } catch (err) {
-      btn.textContent = 'Ошибка';
-      status.textContent = 'Ошибка отправки. Попробуйте позже.';
-      status.style.color = '#ef4444';
-    } finally {
-      setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.disabled = false; }, 3000);
-    }
+      btn.textContent = 'Ошибка'; status.textContent = 'Ошибка отправки. Попробуйте позже.'; status.style.color = '#ef4444';
+    } finally { setTimeout(() => { btn.textContent = 'Отправить заявку'; btn.disabled = false; }, 3000); }
   });
 
-  // 4. Пасхалка
-  const btnRun = document.getElementById('btnRunCode');
-  const term = document.getElementById('terminalBody');
-  let isRunning = false;
+  const btnRun = document.getElementById('btnRunCode'); const term = document.getElementById('terminalBody'); let isRunning = false;
   btnRun?.addEventListener('click', async () => {
     if (isRunning) return; isRunning = true; btnRun.textContent = 'Выполняется...'; term.innerHTML = '';
     const sleep = ms => new Promise(r => setTimeout(r, ms));
-    const type = async (txt, cls='') => {
-      const s = document.createElement('span'); s.className = cls; term.appendChild(s);
-      for(let i=0; i<txt.length; i++){ s.textContent += txt[i]; term.scrollTop = term.scrollHeight; await sleep(20); }
-    };
-    await type('user@xlmr:~$ ', 't-accent'); await type('init_site.js\n', 't-white');
-    await sleep(500);
+    const type = async (txt, cls='') => { const s = document.createElement('span'); s.className = cls; term.appendChild(s); for(let i=0; i<txt.length; i++){ s.textContent += txt[i]; term.scrollTop = term.scrollHeight; await sleep(20); } };
+    await type('user@xlmr:~$ ', 't-accent'); await type('init_site.js\n', 't-white'); await sleep(500);
     for(let i=0; i<3; i++){ await type('> Optimizing assets...\n', 't-dim'); await sleep(300); }
-    await type('> // Компиляция завершена успешно.\n', 't-accent');
-    btnRun.textContent = '▶ Запустить код'; isRunning = false;
+    await type('> // Компиляция завершена успешно.\n', 't-accent'); btnRun.textContent = '▶ Запустить код'; isRunning = false;
   });
 
-  // 5. Модалка портфолио
-  const browserModal = document.getElementById('browserModal');
-  const browserIframe = document.getElementById('browserIframe');
-  window.openBrowser = function (url) {
-    browserModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (browserIframe.getAttribute('src') !== url) browserIframe.src = url;
-  };
-  window.closeBrowser = function () {
-    browserModal.classList.remove('open');
-    if (!document.getElementById('aiModal').classList.contains('open')) document.body.style.overflow = '';
-    setTimeout(() => { browserIframe.src = 'about:blank'; }, 300);
-  };
-  document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape') return;
-    closeBrowser();
-    closeMenu();
-    document.getElementById('aiModal').classList.remove('open');
-    document.body.style.overflow = '';
-  });
+  const browserModal = document.getElementById('browserModal'); const browserIframe = document.getElementById('browserIframe');
+  window.openBrowser = function (url) { browserModal.classList.add('open'); document.body.style.overflow = 'hidden'; if (browserIframe.getAttribute('src') !== url) browserIframe.src = url; };
+  window.closeBrowser = function () { browserModal.classList.remove('open'); if (!document.getElementById('aiModal').classList.contains('open')) document.body.style.overflow = ''; setTimeout(() => { browserIframe.src = 'about:blank'; }, 300); };
+  document.addEventListener('keydown', (e) => { if (e.key !== 'Escape') return; closeBrowser(); closeMenu(); document.getElementById('aiModal').classList.remove('open'); document.body.style.overflow = ''; });
   browserModal.addEventListener('click', (e) => { if (e.target === browserModal) closeBrowser(); });
 
-  // 6. ИИ-чат
   const aiModal = document.getElementById('aiModal');
-  document.getElementById('aiFab')?.addEventListener('click', () => {
-    aiModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-  });
-  document.querySelector('.ai-close')?.addEventListener('click', () => {
-    aiModal.classList.remove('open');
-    if (!browserModal.classList.contains('open')) document.body.style.overflow = '';
-  });
-  aiModal?.addEventListener('click', (e) => {
-    if (e.target === aiModal) {
-      aiModal.classList.remove('open');
-      if (!browserModal.classList.contains('open')) document.body.style.overflow = '';
-    }
-  });
+  document.getElementById('aiFab')?.addEventListener('click', () => { aiModal.classList.add('open'); document.body.style.overflow = 'hidden'; });
+  document.querySelector('.ai-close')?.addEventListener('click', () => { aiModal.classList.remove('open'); if (!browserModal.classList.contains('open')) document.body.style.overflow = ''; });
+  aiModal?.addEventListener('click', (e) => { if (e.target === aiModal) { aiModal.classList.remove('open'); if (!browserModal.classList.contains('open')) document.body.style.overflow = ''; } });
 
   async function sendAiMessage() {
-    const input = document.getElementById('aiInput');
-    const chat = document.getElementById('aiChat');
-    const text = input.value.trim();
+    const input = document.getElementById('aiInput'); const chat = document.getElementById('aiChat'); const text = input.value.trim();
     if (!text) return;
-
-    const userMsg = document.createElement('div');
-    userMsg.className = 'msg user';
-    userMsg.textContent = text;
-    chat.appendChild(userMsg);
+    const userMsg = document.createElement('div'); userMsg.className = 'msg user'; userMsg.textContent = text; chat.appendChild(userMsg);
     input.value = ''; chat.scrollTop = chat.scrollHeight;
-
-    const loadingId = 'loading-' + Date.now();
-    chat.insertAdjacentHTML('beforeend', `<div class="msg bot" id="${loadingId}">Печатает...</div>`);
-    chat.scrollTop = chat.scrollHeight;
-
+    const loadingId = 'loading-' + Date.now(); chat.insertAdjacentHTML('beforeend', `<div class="msg bot" id="${loadingId}">Печатает...</div>`); chat.scrollTop = chat.scrollHeight;
     try {
-      const res = await fetch(YANDEX_PROXY_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'ai', message: text })
-      });
+      const res = await fetch(YANDEX_PROXY_URL, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'ai', message: text }) });
       const data = await res.json();
       document.getElementById(loadingId).textContent = data.text || 'Извините, я не могу ответить сейчас.';
-    } catch (error) {
-      document.getElementById(loadingId).textContent = 'ИИ временно недоступен. Оставьте заявку!';
-    }
+    } catch (error) { document.getElementById(loadingId).textContent = 'ИИ временно недоступен. Оставьте заявку!'; }
     chat.scrollTop = chat.scrollHeight;
   }
 </script>
