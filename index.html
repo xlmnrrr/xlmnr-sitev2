@@ -31,7 +31,7 @@
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 60px; font-size: 18px; }
 
     /* СКРЫВАЕМ БЕЙДЖ TUQO */
-    a[href*="tuqo.ru"][style*="position: fixed"], a[href*="tuqo.ru"][style*="position:fixed"], #tuqo-badge, .tuqo-badge {
+    a[href*="tuqo.ru"], #tuqo-badge, .tuqo-badge {
       display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important;
     }
 
@@ -117,6 +117,25 @@
     .consent-group label a:hover { text-decoration: underline; }
 
     /* ================= ИИ-ЧАТ ================= */
+    .ai-fab { 
+      position: fixed; 
+      left: 16px; 
+      bottom: calc(20px + env(safe-area-inset-bottom)); 
+      z-index: 1100; 
+      border-radius: 50%; 
+      width: 56px; 
+      height: 56px; 
+      padding: 0; 
+      box-shadow: 0 4px 15px rgba(194, 106, 74, 0.4); 
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out 0.5s forwards;
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    body.has-cookie .ai-fab { bottom: calc(148px + env(safe-area-inset-bottom)); }
+
     .ai-modal { position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 2000; display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: 0.3s; }
     .ai-modal.open { opacity: 1; pointer-events: auto; }
     .ai-window { background: var(--bg); width: 100%; max-width: 500px; border-radius: 12px; border: 1px solid var(--border); display: flex; flex-direction: column; height: 600px; max-height: 90vh; overflow: hidden; }
