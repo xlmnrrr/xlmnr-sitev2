@@ -4,56 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="theme-color" content="#121212">
-  <meta name="description" content="XLMNR — создание сайтов и лендингов, которые приносят клиентов.">
+  <meta name="description" content="XLMNR — создание сайтов и лендингов, которые приносят клиентов. Дорогой дизайн, быстрая загрузка.">
   <title>XLMNR | Сайты, которые приносят клиентов</title>
-  <link rel="canonical" href="https://xlmnr.ru/">
   <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
 <header class="header" id="mainHeader">
   <div class="container header-inner">
-    <a href="#" class="logo"><span>X</span>LMNR</a>
-    <nav class="nav">
-      <a href="#services">Услуги</a>
-      <a href="#portfolio">Работы</a>
-      <a href="#contact">Контакты</a>
-    </nav>
+    <a href="#" class="logo" id="logoLink"><span>X</span>LMNR</a>
+    <div class="nav-panel" id="siteNav">
+      <nav class="nav">
+        <a href="#services">Услуги</a>
+        <a href="#portfolio">Работы</a>
+        <a href="#benefits">Почему мы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contact">Контакты</a>
+      </nav>
+      <a href="#contact" class="btn nav-cta">Обсудить проект</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="siteNav">
+      <span></span><span></span><span></span>
+    </button>
     <a href="#contact" class="btn header-cta">Обсудить проект</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
+<section class="hero code-bg-section" id="home">
+  <div class="css-code-bg" aria-hidden="true"></div>
+  <div class="container reveal">
     <h1>Сайты, которые <br><span style="color: var(--accent); font-style: italic;">приносят клиентов</span></h1>
-    <p>Дорогой дизайн, идеальная адаптация под мобильные телефоны. Без шаблонов и лишнего шума.</p>
+    <p>Дорогой дизайн, идеальная адаптация под мобильные телефоны и удобные админ-панели. Без шаблонов и лишнего шума.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn">Заказать сайт</a>
+      <a href="#portfolio" class="btn btn-outline">Смотреть работы</a>
     </div>
   </div>
 </section>
 
 <section id="services">
   <div class="container">
-    <h2>Наши <span>услуги</span></h2>
+    <h2 class="reveal">Наши <span>услуги</span></h2>
+    <p class="section-subtitle reveal">Всё, что нужно для запуска и роста вашего бизнеса в интернете.</p>
     <div class="bento">
-      <div class="bento-item wide">
+      <div class="bento-item wide reveal">
         <h3>Продающие лендинги</h3>
-        <p>Идеально для запуска рекламы. Быстрая загрузка, чёткая структура.</p>
+        <p>Идеально для запуска рекламы. Быстрая загрузка, четкая структура, интеграция с CRM и Telegram.</p>
       </div>
-      <div class="bento-item narrow">
+      <div class="bento-item narrow reveal">
         <h3>Сайты-визитки</h3>
-        <p>Солидный имидж для эксперта или компании.</p>
+        <p>Солидный имидж для эксперта или компании. Строгий дизайн и понятная подача.</p>
+      </div>
+      <div class="bento-item third reveal">
+        <h3>Интеграции</h3>
+        <p>Подключим оплату, CRM, аналитику и уведомления в Telegram.</p>
+      </div>
+      <div class="bento-item third reveal">
+        <h3>SEO-база</h3>
+        <p>Schema.org, мета-теги и скорость, чтобы вас находили в поиске.</p>
+      </div>
+      <div class="bento-item third reveal">
+        <h3>ИИ-Ассистенты</h3>
+        <p>Умный бот на сайте, который ответит на вопросы клиентов 24/7.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="portfolio">
+<section id="portfolio" class="code-bg-section">
+  <div class="css-code-bg" aria-hidden="true"></div>
   <div class="container">
-    <h2>Наши <span>работы</span></h2>
+    <h2 class="reveal">Наши <span>работы</span></h2>
     <div class="portfolio-grid">
-      <a href="autoservice/avtoazbuka.html" class="portfolio-item" target="_blank">
+      <div class="portfolio-item reveal" onclick="openBrowser('autoservice/avtoazbuka.html', 'avtoservice')">
         <div class="portfolio-img" style="background: linear-gradient(135deg, #2b2b2b, #111);">
           <h2 style="color: rgba(255,255,255,0.1); font-size: 40px; font-family: var(--font-display);">Auto</h2>
         </div>
@@ -61,34 +84,94 @@
           <p>Автосервис • Сайт под ключ</p>
           <h3>Премиум ремонт авто</h3>
         </div>
-      </a>
+      </div>
+      <div class="portfolio-item reveal" onclick="alert('Скоро здесь будет новый кейс')">
+        <div class="portfolio-img" style="background: linear-gradient(135deg, #1a1a1a, #050505);">
+           <h2 style="color: rgba(255,255,255,0.1); font-size: 40px; font-family: var(--font-display);">Edu</h2>
+        </div>
+        <div class="portfolio-info">
+          <p>Онлайн-школа • Лендинг</p>
+          <h3>Курсы по дизайну</h3>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="container features-layout">
+    <div class="reveal">
+      <h2 style="text-align: left;">Почему <span>XLMNR</span>?</h2>
+      <p style="color: var(--text-muted); font-size: 18px; margin-bottom: 10px;">
+        Мы пишем чистый код. Ваш сайт будет летать даже на слабом интернете, а поисковики будут вас любить.
+      </p>
+      <div class="feature-list">
+        <div class="feature-item reveal">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <h4>Никаких тяжелых конструкторов</h4>
+            <p>Чистый HTML/CSS/JS. Сайт грузится мгновенно, без скрытых абонплат.</p>
+          </div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <h4>Идеальный мобильный вид</h4>
+            <p>80% клиентов заходят с телефонов. Ваш сайт будет удобен каждому.</p>
+          </div>
+        </div>
+        <div class="feature-item reveal">
+          <div class="feature-icon">✓</div>
+          <div class="feature-text">
+            <h4>Прозрачные сроки и фикс-цена</h4>
+            <p>Никаких скрытых доплат. Фиксируем объем работ в договоре.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="terminal-wrapper">
+        <div class="terminal-header"><span></span><span></span><span></span></div>
+        <div class="terminal-body" id="terminalBody"></div>
+      </div>
+      <button class="btn-run" id="btnRunCode">▶ Запустить код (Пасхалка)</button>
+    </div>
+  </div>
+</section>
+
+<section id="reviews" class="code-bg-section">
+  <div class="css-code-bg" aria-hidden="true"></div>
+  <div class="container">
+    <h2 class="reveal">Отзывы <span>клиентов</span></h2>
+    <div class="reviews-grid" id="reviewsContainer">
+      <p style="text-align:center; width:100%; color:var(--text-muted);">Загрузка отзывов...</p>
+    </div>
+    <!-- Отзывы скрыты, так как нет сервера для их хранения по 152-ФЗ. Показываем заглушку -->
   </div>
 </section>
 
 <section id="contact">
   <div class="container">
-    <h2>Давайте <span>работать</span></h2>
-    <p class="section-subtitle">Оставьте заявку, и я свяжусь с вами.</p>
-    
-    <form class="contact-form" id="contactForm">
-      <div class="form-group">
-        <input type="text" id="clientName" placeholder="Ваше имя" required maxlength="80">
-      </div>
-      <div class="form-group">
-        <input type="tel" id="clientPhone" placeholder="Телефон или Telegram" required maxlength="40">
-      </div>
-      <div class="form-group">
-        <textarea id="clientMessage" placeholder="Какой сайт вам нужен?" rows="3"></textarea>
-      </div>
-      
-      <!-- Скрытое поле для защиты от спама -->
+    <h2 class="reveal">Давайте <span>работать</span></h2>
+    <p class="section-subtitle reveal">Оставьте заявку, и я свяжусь с вами в течение рабочего дня.</p>
+    <form class="contact-form reveal" id="contactForm">
+      <div class="form-group"><input type="text" id="clientName" placeholder="Ваше имя" required maxlength="80"></div>
+      <div class="form-group"><input type="tel" id="clientPhone" placeholder="Телефон или Telegram" required maxlength="40"></div>
+      <div class="form-group"><textarea id="clientMessage" placeholder="Какой сайт вам нужен?" rows="3"></textarea></div>
+
       <input type="text" id="website" style="display:none" tabindex="-1" autocomplete="off">
 
       <div class="consent-group">
         <input type="checkbox" id="consentPd" required>
         <label for="consentPd">
-          Я ознакомлен(а) с <a href="privacy/index.html" target="_blank">Политикой ПДн</a> и даю <a href="consent/index.html" target="_blank">Согласие на обработку персональных данных</a> <span style="color:#ef4444">*</span>
+          Я ознакомлен(а) с <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Политикой обработки ПДн</a> и даю <a href="consent/index.html" target="_blank" rel="noopener noreferrer">Согласие на обработку персональных данных</a> <span style="color:#ef4444">*</span>
+        </label>
+      </div>
+
+      <div class="consent-group">
+        <input type="checkbox" id="consentMarketing">
+        <label for="consentMarketing">
+          Согласен(на) на получение рекламных и информационных сообщений (необязательно)
         </label>
       </div>
 
@@ -100,6 +183,29 @@
 
 <footer class="footer">
   <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <a href="#" class="logo" style="margin-bottom: 15px; display: inline-block;"><span>X</span>LMNR</a>
+        <p>Создание сайтов, лендингов и веб-приложений. Дорогой дизайн, чистый код.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Компания</h4>
+        <ul class="footer-links">
+          <li><a href="#services">Услуги</a></li>
+          <li><a href="#portfolio">Наши работы</a></li>
+          <li><a href="#benefits">Почему мы</a></li>
+          <li><a href="#reviews">Отзывы</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Связаться с нами</h4>
+        <ul class="footer-links">
+          <li><a href="https://t.me/xlmnrrr" target="_blank" rel="noopener noreferrer">Telegram: @xlmnrrr</a></li>
+          <li><a href="mailto:makar.ulyanov.02@mail.ru">makar.ulyanov.02@mail.ru</a></li>
+        </ul>
+      </div>
+    </div>
+
     <div class="footer-bottom">
       <div class="footer-bottom-left">
         <p>© 2026 XLMNR. Все права защищены.</p>
@@ -111,13 +217,47 @@
         </div>
       </div>
       <div class="footer-bottom-center">
-        <a href="privacy/index.html">Политика ПДн</a>
-        <a href="consent/index.html">Согласие</a>
-        <a href="cookie/index.html">Файлы cookie</a>
+        <a href="privacy/index.html" target="_blank" rel="noopener noreferrer">Политика ПДн</a>
+        <a href="consent/index.html" target="_blank" rel="noopener noreferrer">Согласие</a>
+        <a href="cookie/index.html" target="_blank" rel="noopener noreferrer">Файлы cookie</a>
       </div>
     </div>
   </div>
 </footer>
+
+<button class="btn ai-fab" type="button" id="aiFab" aria-label="Открыть ИИ-ассистента">ИИ</button>
+
+<div class="ai-modal" id="aiModal">
+  <div class="ai-window">
+    <div class="ai-header">
+      <h3>ИИ-Ассистент XLMNR</h3>
+      <button class="ai-close" onclick="document.getElementById('aiModal').classList.remove('open')">×</button>
+    </div>
+    <div class="ai-chat" id="aiChat">
+      <div class="msg bot">Привет! Я ИИ-помощник. Спросите меня про цены, сроки или услуги.</div>
+    </div>
+    <div class="ai-input-area">
+      <input type="text" id="aiInput" placeholder="Например: сколько стоит лендинг?" onkeypress="if(event.key === 'Enter') sendAiMessage()">
+      <button class="btn" onclick="sendAiMessage()">→</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" id="browserModal">
+  <div class="browser-window">
+    <div class="browser-header">
+      <div class="browser-dots">
+        <span onclick="closeBrowser()"></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="browser-address" id="browserUrl">autoservice</div>
+    </div>
+    <div class="browser-body">
+      <iframe class="browser-iframe" id="browserIframe" title="Демонстрация сайта" src="about:blank"></iframe>
+    </div>
+  </div>
+</div>
 
 <script src="assets/js/app.js"></script>
 </body>
