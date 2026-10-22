@@ -34,18 +34,6 @@
     section { padding: clamp(56px, 8vw, 100px) 0; position: relative; scroll-margin-top: 88px; }
     .section-subtitle { text-align: center; color: var(--text-muted); max-width: 600px; margin: 0 auto 60px; font-size: 18px; }
 
-    /* ================= ФОН (ОПТИМИЗИРОВАН) ================= */
-    .code-bg-section { position: relative; overflow: hidden; }
-    .css-code-bg { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6; mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%); opacity: 0.25; }
-    .code-column-wrapper { position: absolute; top: 0; height: 100%; overflow: hidden; opacity: 0; transform: translate3d(0, 24px, 0); }
-    .code-bg-section.is-visible .code-column-wrapper { animation: softAppear 3s cubic-bezier(0.2, 0.8, 0.2, 1) forwards; }
-    @keyframes softAppear { 0% { opacity: 0; transform: translateY(60px); } 100% { opacity: 1; transform: translateY(0); } }
-    .code-column { display: block; color: rgba(194, 106, 74, 0.7); font-size: 13px; line-height: 1.85; }
-    
-    /* Убрали бесконечную анимацию (infinite), которая вешала браузер */
-    .code-line { display: block; overflow: hidden; white-space: nowrap; transform-origin: left center; opacity: 0; animation: typeLine 1s ease-out forwards; will-change: transform, opacity; }
-    @keyframes typeLine { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
-
     /* ================= СКРЫВАЕМ БЕЙДЖ TUQO ================= */
     a[href*="tuqo.ru"][style*="position: fixed"],
     a[href*="tuqo.ru"][style*="position:fixed"],
@@ -264,8 +252,7 @@
   </div>
 </header>
 
-<section class="hero code-bg-section" id="home">
-  <div class="css-code-bg" aria-hidden="true"></div>
+<section class="hero" id="home">
   <div class="container reveal">
     <h1>Сайты, которые <br><span style="color: var(--accent); font-style: italic;">приносят клиентов</span></h1>
     <p>Дорогой дизайн, идеальная адаптация под мобильные телефоны и удобные админ-панели. Без шаблонов и лишнего шума.</p>
@@ -305,8 +292,7 @@
   </div>
 </section>
 
-<section id="portfolio" class="code-bg-section">
-  <div class="css-code-bg" aria-hidden="true"></div>
+<section id="portfolio">
   <div class="container">
     <h2 class="reveal">Наши <span>работы</span></h2>
     <div class="portfolio-grid">
@@ -373,8 +359,7 @@
   </div>
 </section>
 
-<section id="reviews" class="code-bg-section">
-  <div class="css-code-bg" aria-hidden="true"></div>
+<section id="reviews">
   <div class="container">
     <h2 class="reveal">Отзывы <span>клиентов</span></h2>
     <div class="reviews-grid" id="reviewsContainer">
@@ -518,57 +503,13 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in');
-        if (entry.target.classList.contains('code-bg-section')) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+        observer.unobserve(entry.target);
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .code-bg-section').forEach(el => observer.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // 3. Оптимизированный фон
-  function initCSSBackground() {
-    document.querySelectorAll('.css-code-bg').forEach(bg => {
-      bg.innerHTML = '';
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      
-      const chars = ['<', '>', '/', '=', '{', '}', '(', ')', '[', ']', '0', '1', 'a', 'b', 'c', 'x', 'y', 'z'];
-      const isMobile = window.innerWidth < 768;
-      
-      // Сильно уменьшили количество колонок и строк
-      const colCount = isMobile ? 4 : 8; 
-      const rows = isMobile ? 10 : 15;
-      const lineLength = 6;
-
-      for(let i=0; i<colCount; i++) {
-        const wrapper = document.createElement('div');
-        wrapper.className = 'code-column-wrapper';
-        wrapper.style.left = (i * 100 / colCount) + '%';
-        wrapper.style.width = (100 / colCount) + '%';
-        wrapper.style.animationDelay = (Math.random() * 1) + 's';
-
-        const col = document.createElement('div');
-        col.className = 'code-column';
-
-        for (let j = 0; j < rows; j++) {
-          let line = '';
-          for (let k = 0; k < lineLength; k++) line += chars[(Math.random() * chars.length) | 0];
-          const span = document.createElement('span');
-          span.className = 'code-line';
-          span.textContent = line;
-          // Задержка для эффекта "печати"
-          span.style.animationDelay = (((j * 0.1) + (i * 0.15)) % 1.5) + 's';
-          col.appendChild(span);
-        }
-        wrapper.appendChild(col);
-        bg.appendChild(wrapper);
-      }
-    });
-  }
-  initCSSBackground();
-
-  // 4. Форма
+  // 3. Форма
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     if (!document.getElementById('consentPd').checked) {
@@ -616,7 +557,7 @@
     }
   });
 
-  // 5. Пасхалка
+  // 4. Пасхалка
   const btnRun = document.getElementById('btnRunCode');
   const term = document.getElementById('terminalBody');
   let isRunning = false;
@@ -634,7 +575,7 @@
     btnRun.textContent = '▶ Запустить код'; isRunning = false;
   });
 
-  // 6. Модалка портфолио
+  // 5. Модалка портфолио
   const browserModal = document.getElementById('browserModal');
   const browserIframe = document.getElementById('browserIframe');
   window.openBrowser = function (url) {
@@ -656,7 +597,7 @@
   });
   browserModal.addEventListener('click', (e) => { if (e.target === browserModal) closeBrowser(); });
 
-  // 7. ИИ-чат
+  // 6. ИИ-чат
   const aiModal = document.getElementById('aiModal');
   document.getElementById('aiFab')?.addEventListener('click', () => {
     aiModal.classList.add('open');
